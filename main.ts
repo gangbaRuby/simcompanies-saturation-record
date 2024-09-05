@@ -110,7 +110,7 @@ const htmlContent = `
                         }
                     }));
 
-                    const containerId = `${key}`;
+                    const containerId = key;
                     const container = document.getElementById(containerId);
 
                     if (container) {
