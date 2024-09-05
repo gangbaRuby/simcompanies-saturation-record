@@ -1,6 +1,3 @@
-import { serve } from "https://deno.land/std@0.114.0/http/server.ts";
-
-const htmlContent = `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -177,10 +174,3 @@ const htmlContent = `
     </script>
 </body>
 </html>
-`;
-
-serve((req) => {
-  return new Response(htmlContent, {
-    headers: { "content-type": "text/html" },
-  });
-});
