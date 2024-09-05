@@ -118,7 +118,7 @@ const htmlContent = `
 
                         const option = {
                             title: {
-                                text: `${{
+                                text: {
                                     freshStore: '生鲜商店',
                                     hardwareStore: '五金商店',
                                     gasStation: '加油站',
@@ -126,7 +126,7 @@ const htmlContent = `
                                     electronicsStore: '电子产品商店',
                                     carDealership: '车行',
                                     aerospace: '航天'
-                                }[key]} 饱和度`
+                                }[key] + ' 饱和度'
                             },
                             tooltip: {
                                 trigger: 'axis'
@@ -159,14 +159,14 @@ const htmlContent = `
 
                         chart.setOption(option);
                     } else {
-                        console.error(`Container with ID ${containerId} not found.`);
+                        console.error(\`Container with ID \${containerId} not found.\`);
                     }
                 });
 
                 // 调整图表大小以适应窗口变化
                 window.addEventListener('resize', () => {
                     Object.keys(idMappings).forEach(key => {
-                        const containerId = `${key}`;
+                        const containerId = key;
                         const container = document.getElementById(containerId);
                         const chart = echarts.getInstanceByDom(container);
                         if (chart) chart.resize();
