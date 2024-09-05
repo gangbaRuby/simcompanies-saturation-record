@@ -1,39 +1,45 @@
 import { serve } from "https://deno.land/std@0.114.0/http/server.ts";
 
-const html = `
+const htmlContent = `
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ECharts with Deno</title>
-  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECharts Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.0.2/dist/echarts.min.js"></script>
 </head>
 <body>
-  <h1>ECharts Demo</h1>
-  <div id="main" style="width: 600px;height:400px;"></div>
-  
-  <script type="text/javascript">
-    var chartDom = document.getElementById('main');
-    var myChart = echarts.init(chartDom);
-    var option = {
-      title: {
-        text: 'ECharts Example'
-      },
-      tooltip: {},
-      xAxis: {
-        data: ['Category1', 'Category2', 'Category3']
-      },
-      yAxis: {},
-      series: [{
-        type: 'bar',
-        data: [120, 200, 150]
-      }]
-    };
-    myChart.setOption(option);
-  </script>
+    <h2>ECharts in Deno</h2>
+    <div id="main" style="width: 600px;height:400px;"></div>
+
+    <script>
+        var myChart = echarts.init(document.getElementById('main'));
+
+        var option = {
+            title: {
+                text: 'Sample Chart'
+            },
+            tooltip: {},
+            xAxis: {
+                data: ['A', 'B', 'C', 'D', 'E', 'F']
+            },
+            yAxis: {},
+            series: [{
+                name: 'Sales',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20]
+            }]
+        };
+
+        myChart.setOption(option);
+    </script>
 </body>
 </html>
 `;
 
-serve((req) => new Response(html, { headers: { "content-type": "text/html" } }));
+serve((req) => {
+  return new Response(htmlContent, {
+    headers: { "content-type": "text/html" },
+  });
+});
