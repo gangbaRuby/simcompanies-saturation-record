@@ -115,7 +115,7 @@ const htmlContent = `
 
         let showLabels = true; // 初始化数据标签状态
 
-        fetch('https://raw.githubusercontent.com/gangbaRuby/simcompanies-saturation-record/main/data/saturation.json')
+        fetch('https://raw.githubusercontent.com/gangbaRuby/simcompanies-saturation-record/refs/heads/main/data/R1_saturation.json')
             .then(response => response.json())
             .then(data => {
                 // 解析日期
