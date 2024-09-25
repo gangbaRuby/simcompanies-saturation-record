@@ -198,7 +198,7 @@ const htmlContent = `
 
         // 获取数据并重新加载分类数据
         function fetchData(dataSource, chartKey = currentChart) {
-            const url = `https://raw.githubusercontent.com/gangbaRuby/simcompanies-saturation-record/main/data/${dataSource}_saturation.json?timestamp=${new Date().getTime()}`;
+            const url = \`https://raw.githubusercontent.com/gangbaRuby/simcompanies-saturation-record/main/data/\${dataSource}_saturation.json?timestamp=\${new Date().getTime()}\`;
             return fetch(url)
                 .then(response => response.json())
                 .then(data => {
